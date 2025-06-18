@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecGuard Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 2em; background: #f9f9f9; }
+        h1, h2 { color: #333; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 2em; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        .high { background-color: #f8d7da; }
+        .medium { background-color: #fff3cd; }
+        .low { background-color: #d4edda; }
+    </style>
+</head>
+<body>
+<h1>🔐 SecGuard Security Dashboard</h1>
+
+{% for tool, findings in [('Bandit', bandit), ('Semgrep', semgrep), ('TruffleHog', trufflehog.get("results", []))] %}
+    <h2>{{ tool }} Results ({{ findings | length }})</h2>
+    {% if findings %}
+    <table>
+        <tr><th>Issue</th><th>File</th><th>Line</th><th>Severity</th></tr>
+        {% for i in findings %}
+        <tr class="{{ i.get('issue_severity', i.get('severity', 'low')).lower() }}">
+            <td>{{ i.get('test_id', '') or i.get('check_id', '') or i.get('reason', '') }}</td>
+            <td>{{ i.get('filename', i.get('path', '')) }}</td>
+            <td>{{ i.get('line_number', i.get('start', {}).get('line', '') }}</td>
+            <td>{{ i.get('issue_severity', i.get('severity', 'low')) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No issues found ✅</p>
+    {% endif %}
+{% endfor %}
+
+</body>
+</html>
+

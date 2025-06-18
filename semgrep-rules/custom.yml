@@ -1,0 +1,7 @@
+rules:
+  - id: detect-eval
+    pattern: eval($X)
+    message: "Avoid using eval()."
+    severity: ERROR
+    languages: [python]
+
