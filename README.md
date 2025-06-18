@@ -8,10 +8,10 @@ Git clone the repo
 Step2: 
 Place this Gitsecret folder in the source code folder.
 Step3:
-'''cd Gitsecret'''
-'''pip3 install -r requirements.txt'''
-'''python3 scan.py'''
-'''xdg-open reports/dashboard.html''' # You can directly open the report from gui
+cd Gitsecret
+pip3 install -r requirements.txt
+python3 scan.py
+xdg-open reports/dashboard.html # You can directly open the report from gui
 
 There is a  test directory in which bad.py is available to test the tool.
 
