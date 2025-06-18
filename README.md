@@ -1,7 +1,7 @@
 # SecGuard
 Hey foks This tool is a source code scanner which can test the source code locally as well as on the github just make a directory and push the Secguard in the repository that you want to scan and create a workflow that's all.
 
-##How to run the scan locally to test the source code.
+## How to run the scan locally to test the source code.
 
 Step1:
 Git clone the repo
@@ -19,9 +19,9 @@ python3 scan.py
 
 xdg-open reports/dashboard.html # You can directly open the report from gui
 
-There is a  test directory in which bad.py is available to test the tool.
+''' There is a  test directory in which bad.py is available to test the tool. ''' 
 
-How to run the scan if the source code is available on Git hub and you want to run the scan on git hub only.
+## How to run the scan if the source code is available on Git hub and you want to run the scan on git hub only.
 
 Step1:
 Upload the Gitsecret folder to the repository you want to scan
