@@ -25,10 +25,12 @@ There is a  test directory in which bad.py is available to test the tool.
 
 Step1:
 Upload the Gitsecret folder to the repository you want to scan
+
 Step2:
 Go to your repo → Actions tab
+
 Step3:
 Create a workflow and copy paste the contents of secguard.yml in your wlorflow file and commite chages.
+
 Step4: 
 You can run the scan from actions tab from there only you can download the scan results.
-
