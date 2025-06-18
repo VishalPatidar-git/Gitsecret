@@ -19,7 +19,7 @@ python3 scan.py
 
 xdg-open reports/dashboard.html # You can directly open the report from gui
 
-''' There is a  test directory in which bad.py is available to test the tool. ''' 
+There is a  test directory in which bad.py is available to test the tool.
 
 ## How to run the scan if the source code is available on Git hub and you want to run the scan on git hub only.
 
