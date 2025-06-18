@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecGuard Security Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background: #f9f9f9; }
+        h2 { color: #444; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        th, td { border: 1px solid #ccc; padding: 10px; }
+        th { background: #eee; }
+        .high { background-color: #f8d7da; }
+        .medium { background-color: #fff3cd; }
+        .low { background-color: #d4edda; }
+    </style>
+</head>
+<body>
+    <h1>🔒 SecGuard Security Dashboard</h1>
+
+    
+        <h2>Bandit Results (10)</h2>
+        
+        <table>
+            <tr>
+                <th>Issue</th>
+                <th>File</th>
+                <th>Line</th>
+                <th>Severity</th>
+            </tr>
+            
+            <tr class="medium">
+                <td>B307</td>
+                <td>./bad.py</td>
+                <td>4</td>
+                <td>MEDIUM</td>
+            </tr>
+            
+            <tr class="high">
+                <td>B701</td>
+                <td>./generate_html.py</td>
+                <td>21</td>
+                <td>HIGH</td>
+            </tr>
+            
+            <tr class="low">
+                <td>B605</td>
+                <td>./scan.py</td>
+                <td>4</td>
+                <td>LOW</td>
+            </tr>
+            
+            <tr class="low">
+                <td>B607</td>
+                <td>./scan.py</td>
+                <td>4</td>
+                <td>LOW</td>
+            </tr>
+            
+            <tr class="low">
+                <td>B605</td>
+                <td>./scan.py</td>
+                <td>7</td>
+                <td>LOW</td>
+            </tr>
+            
+            <tr class="low">
+                <td>B607</td>
+                <td>./scan.py</td>
+                <td>7</td>
+                <td>LOW</td>
+            </tr>
+            
+            <tr class="low">
+                <td>B605</td>
+                <td>./scan.py</td>
+                <td>10</td>
+                <td>LOW</td>
+            </tr>
+            
+            <tr class="low">
+                <td>B607</td>
+                <td>./scan.py</td>
+                <td>10</td>
+                <td>LOW</td>
+            </tr>
+            
+            <tr class="low">
+                <td>B605</td>
+                <td>./scan.py</td>
+                <td>17</td>
+                <td>LOW</td>
+            </tr>
+            
+            <tr class="low">
+                <td>B607</td>
+                <td>./scan.py</td>
+                <td>17</td>
+                <td>LOW</td>
+            </tr>
+            
+        </table>
+        
+    
+        <h2>Semgrep Results (1)</h2>
+        
+        <table>
+            <tr>
+                <th>Issue</th>
+                <th>File</th>
+                <th>Line</th>
+                <th>Severity</th>
+            </tr>
+            
+            <tr class="low">
+                <td>semgrep-rules.detect-eval</td>
+                <td>bad.py</td>
+                <td>4</td>
+                <td>low</td>
+            </tr>
+            
+        </table>
+        
+    
+        <h2>TruffleHog Results (0)</h2>
+        
+            <p>No issues found ✅</p>
+        
+    
+</body>
+</html>
