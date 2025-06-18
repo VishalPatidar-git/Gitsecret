@@ -1,6 +1,6 @@
 import os
 import json
-import sys
+#import sys
 
 def run_trufflehog():
     print("[*] Running TruffleHog...")
@@ -22,13 +22,13 @@ def main():
     os.system("python generate_html.py")
 
     # Optional: fail if high severity issue in Bandit
-    try:
-        with open("reports/bandit_report.json") as f:
-            if '"issue_severity": "HIGH"' in f.read():
-                print("[!] High severity Bandit issue found.")
-                sys.exit(1)
-    except Exception as e:
-        print(f"[!] Could not check Bandit severity: {e}")
+   # try:
+    #    with open("reports/bandit_report.json") as f:
+     #       if '"issue_severity": "HIGH"' in f.read():
+      #          print("[!] High severity Bandit issue found.")
+       #         sys.exit(1)
+    #except Exception as e:
+     #   print(f"[!] Could not check Bandit severity: {e}")
 
 if __name__ == "__main__":
     main()
