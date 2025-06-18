@@ -1,0 +1,37 @@
+name: 🔒 SecGuard Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout Code
+      uses: actions/checkout@v3
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: 📦 Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit semgrep trufflehog jinja2
+
+    - name: 📊 Run SecGuard Scan
+      run: |
+        mkdir -p reports
+        python scan.py
+
+    - name: 📎 Upload Report Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: SecGuard-Report
+        path: reports/
+

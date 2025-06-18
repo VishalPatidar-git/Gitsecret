@@ -1,4 +1,5 @@
 import os
+import sys
 
 def run_trufflehog():
     os.system("trufflehog filesystem --fail --no-update --json . > reports/trufflehog_report.json")
@@ -18,4 +19,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+with open("reports/bandit_report.json") as f:
+    if '"issue_severity": "HIGH"' in f.read():
+        print("[!] High severity Bandit issue found.")
+        sys.exit(1)
 
