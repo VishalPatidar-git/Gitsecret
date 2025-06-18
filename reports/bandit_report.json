@@ -1,20 +1,7 @@
 {
   "errors": [],
-  "generated_at": "2025-06-18T20:38:08Z",
+  "generated_at": "2025-06-18T21:08:42Z",
   "metrics": {
-    "./bad.py": {
-      "CONFIDENCE.HIGH": 1,
-      "CONFIDENCE.LOW": 0,
-      "CONFIDENCE.MEDIUM": 0,
-      "CONFIDENCE.UNDEFINED": 0,
-      "SEVERITY.HIGH": 0,
-      "SEVERITY.LOW": 0,
-      "SEVERITY.MEDIUM": 1,
-      "SEVERITY.UNDEFINED": 0,
-      "loc": 3,
-      "nosec": 0,
-      "skipped_tests": 0
-    },
     "./generate_html.py": {
       "CONFIDENCE.HIGH": 1,
       "CONFIDENCE.LOW": 0,
@@ -37,45 +24,38 @@
       "SEVERITY.LOW": 8,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 15,
+      "loc": 19,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "./test/bad.py": {
+      "CONFIDENCE.HIGH": 9,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 4,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 2,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 4,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 21,
       "nosec": 0,
       "skipped_tests": 0
     },
     "_totals": {
-      "CONFIDENCE.HIGH": 10,
-      "CONFIDENCE.LOW": 0,
-      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.HIGH": 18,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 4,
       "CONFIDENCE.UNDEFINED": 0,
-      "SEVERITY.HIGH": 1,
-      "SEVERITY.LOW": 8,
-      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.HIGH": 3,
+      "SEVERITY.LOW": 16,
+      "SEVERITY.MEDIUM": 4,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 47,
+      "loc": 69,
       "nosec": 0,
       "skipped_tests": 0
     }
   },
   "results": [
-    {
-      "code": "3 api_key = \"sk_test_fakekey123\"\n4 eval(\"print('insecure')\")\n5 \n",
-      "col_offset": 0,
-      "end_col_offset": 25,
-      "filename": "./bad.py",
-      "issue_confidence": "HIGH",
-      "issue_cwe": {
-        "id": 78,
-        "link": "https://cwe.mitre.org/data/definitions/78.html"
-      },
-      "issue_severity": "MEDIUM",
-      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
-      "line_number": 4,
-      "line_range": [
-        4
-      ],
-      "more_info": "https://bandit.readthedocs.io/en/1.8.5/blacklists/blacklist_calls.html#b307-eval",
-      "test_id": "B307",
-      "test_name": "blacklist"
-    },
     {
       "code": "20 \n21     env = Environment(loader=FileSystemLoader(\"templates\"))\n22     template = env.get_template(\"dashboard_template.html\")\n",
       "col_offset": 10,
@@ -97,49 +77,9 @@
       "test_name": "jinja2_autoescape_false"
     },
     {
-      "code": "3 def run_trufflehog():\n4     os.system(\"trufflehog filesystem --fail --no-update --json . > reports/trufflehog_report.json\")\n5 \n",
+      "code": "6     print(\"[*] Running TruffleHog...\")\n7     os.system(\"trufflehog filesystem --json . > reports/trufflehog_report.json 2>/dev/null\")\n8 \n",
       "col_offset": 4,
-      "end_col_offset": 99,
-      "filename": "./scan.py",
-      "issue_confidence": "HIGH",
-      "issue_cwe": {
-        "id": 78,
-        "link": "https://cwe.mitre.org/data/definitions/78.html"
-      },
-      "issue_severity": "LOW",
-      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
-      "line_number": 4,
-      "line_range": [
-        4
-      ],
-      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b605_start_process_with_a_shell.html",
-      "test_id": "B605",
-      "test_name": "start_process_with_a_shell"
-    },
-    {
-      "code": "3 def run_trufflehog():\n4     os.system(\"trufflehog filesystem --fail --no-update --json . > reports/trufflehog_report.json\")\n5 \n",
-      "col_offset": 4,
-      "end_col_offset": 99,
-      "filename": "./scan.py",
-      "issue_confidence": "HIGH",
-      "issue_cwe": {
-        "id": 78,
-        "link": "https://cwe.mitre.org/data/definitions/78.html"
-      },
-      "issue_severity": "LOW",
-      "issue_text": "Starting a process with a partial executable path",
-      "line_number": 4,
-      "line_range": [
-        4
-      ],
-      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b607_start_process_with_partial_path.html",
-      "test_id": "B607",
-      "test_name": "start_process_with_partial_path"
-    },
-    {
-      "code": "6 def run_bandit():\n7     os.system(\"bandit -r . -f json -o reports/bandit_report.json\")\n8 \n",
-      "col_offset": 4,
-      "end_col_offset": 66,
+      "end_col_offset": 92,
       "filename": "./scan.py",
       "issue_confidence": "HIGH",
       "issue_cwe": {
@@ -157,9 +97,9 @@
       "test_name": "start_process_with_a_shell"
     },
     {
-      "code": "6 def run_bandit():\n7     os.system(\"bandit -r . -f json -o reports/bandit_report.json\")\n8 \n",
+      "code": "6     print(\"[*] Running TruffleHog...\")\n7     os.system(\"trufflehog filesystem --json . > reports/trufflehog_report.json 2>/dev/null\")\n8 \n",
       "col_offset": 4,
-      "end_col_offset": 66,
+      "end_col_offset": 92,
       "filename": "./scan.py",
       "issue_confidence": "HIGH",
       "issue_cwe": {
@@ -177,7 +117,47 @@
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "9 def run_semgrep():\n10     os.system(\"semgrep --config ./semgrep-rules/ --json > reports/semgrep_report.json\")\n11 \n",
+      "code": "10     print(\"[*] Running Bandit...\")\n11     os.system(\"bandit -r . -f json -o reports/bandit_report.json\")\n12 \n",
+      "col_offset": 4,
+      "end_col_offset": 66,
+      "filename": "./scan.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 11,
+      "line_range": [
+        11
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "10     print(\"[*] Running Bandit...\")\n11     os.system(\"bandit -r . -f json -o reports/bandit_report.json\")\n12 \n",
+      "col_offset": 4,
+      "end_col_offset": 66,
+      "filename": "./scan.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 11,
+      "line_range": [
+        11
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "14     print(\"[*] Running Semgrep...\")\n15     os.system(\"semgrep --config ./semgrep-rules/ --json > reports/semgrep_report.json\")\n16 \n",
       "col_offset": 4,
       "end_col_offset": 87,
       "filename": "./scan.py",
@@ -188,16 +168,16 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
-      "line_number": 10,
+      "line_number": 15,
       "line_range": [
-        10
+        15
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b605_start_process_with_a_shell.html",
       "test_id": "B605",
       "test_name": "start_process_with_a_shell"
     },
     {
-      "code": "9 def run_semgrep():\n10     os.system(\"semgrep --config ./semgrep-rules/ --json > reports/semgrep_report.json\")\n11 \n",
+      "code": "14     print(\"[*] Running Semgrep...\")\n15     os.system(\"semgrep --config ./semgrep-rules/ --json > reports/semgrep_report.json\")\n16 \n",
       "col_offset": 4,
       "end_col_offset": 87,
       "filename": "./scan.py",
@@ -208,16 +188,16 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 10,
+      "line_number": 15,
       "line_range": [
-        10
+        15
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "16     run_semgrep()\n17     os.system(\"python generate_html.py\")\n18 \n",
+      "code": "21     run_semgrep()\n22     os.system(\"python generate_html.py\")\n23 \n",
       "col_offset": 4,
       "end_col_offset": 40,
       "filename": "./scan.py",
@@ -228,16 +208,16 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
-      "line_number": 17,
+      "line_number": 22,
       "line_range": [
-        17
+        22
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b605_start_process_with_a_shell.html",
       "test_id": "B605",
       "test_name": "start_process_with_a_shell"
     },
     {
-      "code": "16     run_semgrep()\n17     os.system(\"python generate_html.py\")\n18 \n",
+      "code": "21     run_semgrep()\n22     os.system(\"python generate_html.py\")\n23 \n",
       "col_offset": 4,
       "end_col_offset": 40,
       "filename": "./scan.py",
@@ -248,13 +228,293 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 17,
+      "line_number": 22,
       "line_range": [
-        17
+        22
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "1 import os\n2 import pickle\n3 import subprocess\n",
+      "col_offset": 0,
+      "end_col_offset": 13,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with pickle module.",
+      "line_number": 2,
+      "line_range": [
+        2
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/blacklists/blacklist_imports.html#b403-import-pickle",
+      "test_id": "B403",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "2 import pickle\n3 import subprocess\n4 import hashlib\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 3,
+      "line_range": [
+        3
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "8 # \ud83d\udea8 Hardcoded secrets (TruffleHog)\n9 GITHUB_TOKEN = \"ghp_examplehardcodedtoken1234567890\"\n10 AWS_SECRET_KEY = \"AKIAEXAMPLEFAKEKEY12345\"\n",
+      "col_offset": 15,
+      "end_col_offset": 52,
+      "filename": "./test/bad.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'ghp_examplehardcodedtoken1234567890'",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "9 GITHUB_TOKEN = \"ghp_examplehardcodedtoken1234567890\"\n10 AWS_SECRET_KEY = \"AKIAEXAMPLEFAKEKEY12345\"\n11 DB_PASSWORD = \"root123\"\n",
+      "col_offset": 17,
+      "end_col_offset": 42,
+      "filename": "./test/bad.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'AKIAEXAMPLEFAKEKEY12345'",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "10 AWS_SECRET_KEY = \"AKIAEXAMPLEFAKEKEY12345\"\n11 DB_PASSWORD = \"root123\"\n12 \n",
+      "col_offset": 14,
+      "end_col_offset": 23,
+      "filename": "./test/bad.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'root123'",
+      "line_number": 11,
+      "line_range": [
+        11
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "14 user_input = \"print('Hacked!')\"\n15 eval(user_input)\n16 \n",
+      "col_offset": 0,
+      "end_col_offset": 16,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 15,
+      "line_range": [
+        15
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "17 # \ud83d\udea8 Dangerous exec\n18 exec(\"print('Executing shell...')\")\n19 \n",
+      "col_offset": 0,
+      "end_col_offset": 35,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 18,
+      "line_range": [
+        18
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "21 data = pickle.dumps({\"user\": \"admin\"})\n22 user = pickle.loads(data)\n23 \n",
+      "col_offset": 7,
+      "end_col_offset": 25,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 22,
+      "line_range": [
+        22
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "24 # \ud83d\udea8 Weak hash (Bandit)\n25 password = \"admin123\"\n26 hashed = hashlib.md5(password.encode()).hexdigest()\n",
+      "col_offset": 11,
+      "end_col_offset": 21,
+      "filename": "./test/bad.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'admin123'",
+      "line_number": 25,
+      "line_range": [
+        25
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "25 password = \"admin123\"\n26 hashed = hashlib.md5(password.encode()).hexdigest()\n27 \n",
+      "col_offset": 9,
+      "end_col_offset": 39,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 327,
+        "link": "https://cwe.mitre.org/data/definitions/327.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+      "line_number": 26,
+      "line_range": [
+        26
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b324_hashlib.html",
+      "test_id": "B324",
+      "test_name": "hashlib"
+    },
+    {
+      "code": "29 filename = input(\"Enter filename to read: \")\n30 os.system(f\"cat {filename}\")\n31 \n",
+      "col_offset": 0,
+      "end_col_offset": 28,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Starting a process with a shell, possible injection detected, security issue.",
+      "line_number": 30,
+      "line_range": [
+        30
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "32 # \ud83d\udea8 Subprocess shell=True\n33 subprocess.call(\"ls -la\", shell=True)\n34 \n",
+      "col_offset": 0,
+      "end_col_offset": 37,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 33,
+      "line_range": [
+        33
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "32 # \ud83d\udea8 Subprocess shell=True\n33 subprocess.call(\"ls -la\", shell=True)\n34 \n",
+      "col_offset": 0,
+      "end_col_offset": 37,
+      "filename": "./test/bad.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 33,
+      "line_range": [
+        33
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "38 # \ud83d\udea8 Hardcoded URL\n39 requests.post(\"http://insecure-api.local/submit\", data={\"token\": GITHUB_TOKEN})\n40 \n",
+      "col_offset": 0,
+      "end_col_offset": 79,
+      "filename": "./test/bad.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 39,
+      "line_range": [
+        39
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.5/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
     }
   ]
 }
